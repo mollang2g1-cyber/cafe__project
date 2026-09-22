@@ -1,0 +1,267 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   디자인 시스템 변수 정의 (스타벅스 및 브랜드 레퍼런스 기반)
+   ========================================================================== */
+:root {
+  --bg-canvas: #f2f0eb;           /* 따뜻한 클래식 크림/베이지 캔버스 배경 */
+  --card-bg: #ffffff;             /* 카드의 흰색 배경 */
+  --brand-green: #006241;         /* 메인 타이틀 브랜드 그린 */
+  --accent-green: #00754a;        /* CTA 및 포커스 액센트 그린 */
+  --deep-green: #1e3932;          /* 깊은 헤더/포인트 그린 */
+  --text-dark: rgba(0, 0, 0, 0.87);/* 기본 본문 텍스트 */
+  --text-label: #555555;          /* 라벨 전용 색상 */
+  --text-muted: rgba(0, 0, 0, 0.58);/* 부제목/보조 텍스트 */
+  --border-color: #ccc;           /* 기본 입력칸 테두리 */
+  --border-radius-card: 12px;     /* 메인 카드 모서리 둥글기 */
+  --border-radius-input: 8px;     /* 입력창 모서리 둥글기 */
+  --border-radius-pill: 50px;     /* 버튼 Pill 스타일 둥글기 */
+  --font-family: '맑은 고딕', 'Malgun Gothic', AppleSDGothicNeo-Regular, sans-serif;
+}
+
+/* ==========================================================================
+   리셋 및 리셋 기본 설정
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-canvas);
+  color: var(--text-dark);
+  letter-spacing: -0.01em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px 16px;
+}
+
+/* ==========================================================================
+   레이아웃 컨테이너 (최대 너비 500px 및 카드 스타일)
+   ========================================================================== */
+.cafe-container {
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius-card);
+  padding: 28px 24px;
+  /* 부드러운 다층 레이어드 그림자 효과 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   페이지 상단 헤더
+   ========================================================================== */
+.cafe-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--bg-canvas);
+}
+
+.cafe-title {
+  color: var(--brand-green);
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.cafe-subtitle {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   주문서 폼 그룹 (각 항목 간격 15px 유지를 위한 설정)
+   ========================================================================== */
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* 항목 사이 15px 여백 */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   라벨 (Label) 스타일
+   ========================================================================== */
+label {
+  display: block;
+  font-weight: 700;
+  color: var(--text-label);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.required-asterisk {
+  color: #c82014; /* 필수 표시 빨간색 */
+}
+
+/* 인라인 라벨 (라디오 및 체크박스용) */
+.inline-label {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--text-dark);
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.inline-label input {
+  width: auto;
+  margin-right: 6px;
+  accent-color: var(--accent-green); /* 가성 높은 브랜드 그린 체크 색상 */
+}
+
+/* ==========================================================================
+   입력 요소 공통 스타일 (Input, Select, Textarea)
+   ========================================================================== */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-dark);
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-input); /* 8px 둥근 모서리 */
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 포커스 시 테두리 색상 변화 (갈색/그린계열 브랜드 컬러) */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 3px rgba(0, 117, 74, 0.15);
+}
+
+/* Textarea 높이 설정 (4줄 높이 정렬) */
+textarea {
+  resize: vertical;
+  min-height: 96px; /* 약 4줄 높이 */
+}
+
+/* 드롭다운 select 화살표 공간 처리 */
+select {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   라디오 및 체크박스 가로 배치 그룹
+   ========================================================================== */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  padding: 4px 0;
+}
+
+/* ==========================================================================
+   버튼 스타일
+   ========================================================================== */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  border-radius: var(--border-radius-pill); /* 풀 필(Pill) 스타일 */
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* 마우스 클릭 및 터치 시 눌림 micro-interaction */
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* 8. 주문하기 버튼 (브라운/갈색 배경, 흰색 글씨, hover 반응) */
+.btn-primary {
+  background-color: #5c3a21; /* 카페 느낌의 매력적인 깊은 갈색 */
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #442a17; /* hover시 다크 브라운으로 변화 */
+}
+
+/* 9. 다시 작성 버튼 (회색 배경) */
+.btn-secondary {
+  background-color: #e0e0e0;
+  color: #333333;
+}
+
+.btn-secondary:hover {
+  background-color: #d0d0d0;
+}
+
+/* ==========================================================================
+   플로팅 Frap 주문 버튼 (디자인 가이드 반영)
+   ========================================================================== */
+.floating-frap-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--accent-green);
+  color: #ffffff;
+  border: none;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  z-index: 99;
+}
+
+.floating-frap-btn:hover {
+  background-color: var(--deep-green);
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   반응형 모바일 미디어 쿼리
+   ========================================================================== */
+@media (max-width: 480px) {
+  body {
+    padding: 12px;
+  }
+
+  .cafe-container {
+    padding: 20px 16px;
+  }
+
+  .checkbox-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

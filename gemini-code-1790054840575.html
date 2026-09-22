@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- 반응형 웹을 위한 뷰포트 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>☕ 모카페 - 주문서</title>
+  <!-- CSS 스타일시트 분리 연결 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 메인 컨테이너 (최대 너비 500px, 가운데 정렬) -->
+  <main class="cafe-container">
+    
+    <!-- 페이지 상단 헤더 영역 -->
+    <header class="cafe-header">
+      <h1 class="cafe-title">☕ 모카페</h1>
+      <p class="cafe-subtitle">하루에 향기를 더하세요</p>
+    </header>
+
+    <!-- 카페 주문서 폼 영역 -->
+    <form action="#" method="post" class="order-form">
+
+      <!-- 1. 이름 입력 (필수) -->
+      <div class="form-group">
+        <label for="user-name">이름 <span class="required-asterisk">*</span></label>
+        <input 
+          type="text" 
+          id="user-name" 
+          name="userName" 
+          placeholder="홍길동" 
+          required
+        >
+      </div>
+
+      <!-- 2. 이메일 입력 -->
+      <div class="form-group">
+        <label for="user-email">이메일</label>
+        <input 
+          type="email" 
+          id="user-email" 
+          name="userEmail" 
+          placeholder="hong@email.com"
+        >
+      </div>
+
+      <!-- 3. 전화번호 입력 -->
+      <div class="form-group">
+        <label for="user-phone">전화번호</label>
+        <input 
+          type="tel" 
+          id="user-phone" 
+          name="userPhone" 
+          placeholder="010-1234-5678"
+        >
+      </div>
+
+      <!-- 4. 음료 선택 (드롭다운) -->
+      <div class="form-group">
+        <label for="drink-select">음료 선택</label>
+        <select id="drink-select" name="drinkSelect">
+          <option value="" selected disabled hidden>선택하세요</option>
+          <option value="americano">아메리카노</option>
+          <option value="caffelatte">카페라떼</option>
+          <option value="cafemoca">카페모카</option>
+          <option value="vanillalatte">바닐라라떼</option>
+          <option value="greentealatte">녹차라떼</option>
+          <option value="chocolatelatte">초코라떼</option>
+          <option value="icetea">아이스티</option>
+        </select>
+      </div>
+
+      <!-- 5. 사이즈 선택 (라디오 버튼, 가로 배치) -->
+      <div class="form-group">
+        <label>사이즈</label>
+        <div class="radio-group">
+          <label for="size-s" class="inline-label">
+            <input type="radio" id="size-s" name="drinkSize" value="S"> S(작은)
+          </label>
+          <label for="size-m" class="inline-label">
+            <input type="radio" id="size-m" name="drinkSize" value="M" checked> M(보통)
+          </label>
+          <label for="size-l" class="inline-label">
+            <input type="radio" id="size-l" name="drinkSize" value="L"> L(큰)
+          </label>
+        </div>
+      </div>
+
+      <!-- 6. 추가 옵션 (체크박스, 가로 배치) -->
+      <div class="form-group">
+        <label>추가 옵션</label>
+        <div class="checkbox-group">
+          <label for="opt-shot" class="inline-label">
+            <input type="checkbox" id="opt-shot" name="options" value="shot"> 샷 추가(+500원)
+          </label>
+          <label for="opt-cream" class="inline-label">
+            <input type="checkbox" id="opt-cream" name="options" value="cream"> 크림 추가(+500원)
+          </label>
+          <label for="opt-syrup" class="inline-label">
+            <input type="checkbox" id="opt-syrup" name="options" value="syrup"> 시럽 추가(+300원)
+          </label>
+          <label for="opt-decaf" class="inline-label">
+            <input type="checkbox" id="opt-decaf" name="options" value="decaf"> 디카페인(+0원)
+          </label>
+        </div>
+      </div>
+
+      <!-- 7. 요청사항 (Textarea) -->
+      <div class="form-group">
+        <label for="special-requests">요청사항</label>
+        <textarea 
+          id="special-requests" 
+          name="specialRequests" 
+          rows="4" 
+          placeholder="얼음 적게, 연하게 등"
+        ></textarea>
+      </div>
+
+      <!-- 버튼 영역 (주문하기 / 다시 작성) -->
+      <div class="button-group">
+        <button type="submit" class="btn btn-primary">주문하기</button>
+        <button type="reset" class="btn btn-secondary">다시 작성</button>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- 플로팅 Frap 주문 버튼 (디자인 레퍼런스 요소 반영) -->
+  <button type="button" class="floating-frap-btn" aria-label="빠른 주문 메뉴 열기">☕</button>
+
+</body>
+</html>
